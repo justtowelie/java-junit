@@ -6,21 +6,21 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LoginTests  {
 
 
-    private Login login = new Login();
+    private final Login login = new Login();
     @Test
     @DisplayName("Successfully create user")
     public void successfulUserCreation()
     {
-        assertTrue(login.createLogin("testUser", "testPassword"));
+        assertTrue(login.createLogin("testUser", "Password!"));
     }
 
     @Test
     @DisplayName("Username already exists")
     public void duplicateUserName()
     {
-        assertTrue(login.createLogin("testUser", "testPassword"));
+        assertTrue(login.createLogin("testUser", "testPassword1!"));
         // another call to trigger duplicate user
-        assertFalse(login.createLogin("testUser", "testPassword"));
+        assertFalse(login.createLogin("testUser", "testPassword1!"));
     }
 
     @Test
